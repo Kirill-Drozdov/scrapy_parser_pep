@@ -17,11 +17,11 @@ class PepSpider(scrapy.Spider):
 
     def parse_pep(self, response):
         pep_detail = response.css('h1.page-title::text').get()
-        number = pep_detail.split('–')[0].strip()
-        name = pep_detail.split('–')[1].strip()
         data = {
-            'number': number,
-            'name': name,
-            'status': number,
+            'number': pep_detail.split('–')[0].strip(),
+            'name': pep_detail.split('–')[1].strip(),
+            'status': response.css(
+                'dd.field-even'
+            ).css('abbr::text').get().strip(),
         }
         yield PepParseItem(data)
