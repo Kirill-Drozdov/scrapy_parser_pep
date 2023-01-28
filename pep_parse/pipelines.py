@@ -14,7 +14,7 @@ class PepParsePipeline:
             'Deferred': 0,
             'Final': 0,
             'Provisional': 0,
-            'Informational': 0,
+            # 'Informational': 0,
             'Rejected': 0,
             'Superseded': 0,
             'Withdrawn': 0,

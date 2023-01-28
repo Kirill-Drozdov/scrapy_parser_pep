@@ -7,3 +7,14 @@ RESULTS_DIR = BASE_DIR / 'results'
 RESULTS_PEP = [('Статус', 'Количество')]
 
 DATETIME_FORMAT = '%Y-%m-%d_%H-%M-%S'
+
+ALLOWED_STATUS = ('Active',
+                  'Accepted',
+                  'Deferred',
+                  'Final',
+                  'Provisional',
+                  'Rejected',
+                  'Superseded',
+                  'Withdrawn',
+                  'Draft',
+                  'Total')
