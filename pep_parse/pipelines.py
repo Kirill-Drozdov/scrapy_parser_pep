@@ -4,7 +4,7 @@ from pathlib import Path
 
 from scrapy.exceptions import DropItem
 
-from pep_parse.constants import DATETIME_FORMAT, RESULTS_PEP
+from pep_parse.constants import DATETIME_FORMAT, RESULTS_PEP, FILE_NAME
 
 # Не вынесено в файл с константами, иначе тесты не проходит.
 BASE_DIR = Path(__file__).parent.parent
@@ -43,9 +43,8 @@ class PepParsePipeline:
         RESULTS_DIR.mkdir(exist_ok=True)
         now = dt.datetime.now()
         now_formatted = now.strftime(DATETIME_FORMAT)
-        file_name = f'status_summary_{now_formatted}.csv'
-        file_path = RESULTS_DIR / file_name
+        file_path = RESULTS_DIR / FILE_NAME.format(now_formatted)
 
-        with open(file_path, 'w', encoding='utf-8') as f:
-            writer = csv.writer(f, dialect='unix')
+        with open(file_path, 'w', encoding='utf-8') as file:
+            writer = csv.writer(file, dialect='unix', quoting=csv.QUOTE_NONE)
             writer.writerows(RESULTS_PEP)

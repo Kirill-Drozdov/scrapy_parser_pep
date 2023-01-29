@@ -7,3 +7,4 @@ def parse_status(response):
         text = tag.css('abbr::text').get()
         if text in ALLOWED_STATUS:
             return text
+    return 'Unexisting status!'

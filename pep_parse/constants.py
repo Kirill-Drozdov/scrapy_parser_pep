@@ -8,6 +8,8 @@ RESULTS_PEP = [('Статус', 'Количество')]
 
 DATETIME_FORMAT = '%Y-%m-%d_%H-%M-%S'
 
+FILE_NAME = 'status_summary_{}.csv'
+
 ALLOWED_STATUS = ('Active',
                   'Accepted',
                   'Deferred',
