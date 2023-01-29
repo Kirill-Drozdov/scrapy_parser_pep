@@ -1,5 +1,3 @@
-from scrapy.exporters import BaseItemExporter
-
 BOT_NAME = 'pep_parse'
 
 SPIDER_MODULES = ['pep_parse.spiders']
