@@ -5,6 +5,7 @@ from pep_parse.utils import parse_status
 
 
 class PepSpider(scrapy.Spider):
+    """Собирает информацию о стандартах PEP."""
     name = 'pep'
     allowed_domains = ['peps.python.org']
     start_urls = ['https://peps.python.org/']
