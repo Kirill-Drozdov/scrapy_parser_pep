@@ -6,7 +6,6 @@ from scrapy.exceptions import DropItem
 
 from pep_parse.constants import DATETIME_FORMAT, RESULTS_PEP, FILE_NAME
 
-# Не вынесено в файл с константами, иначе тесты не проходит.
 BASE_DIR = Path(__file__).parent.parent
 
 
@@ -38,7 +37,6 @@ class PepParsePipeline:
     def close_spider(self, spider):
         for status, count_status in self.status_count_total.items():
             RESULTS_PEP.append((status, count_status))
-        # Не вынесено в файл с константами, иначе тесты не проходит.
         RESULTS_DIR = BASE_DIR / 'results'
         RESULTS_DIR.mkdir(exist_ok=True)
         now = dt.datetime.now()
